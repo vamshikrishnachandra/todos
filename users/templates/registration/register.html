@@ -1,0 +1,16 @@
+<!-- users/templates/registration/register.html -->
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+  <h2>Register</h2>
+  {% load static %}  <!-- Add this line to load the static tag -->
+  <form method="post" action="{% url 'register' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+  </form>
+  <a href="{% url 'login' %}">Already have an account? Login here</a>
+{% endblock %}
+
